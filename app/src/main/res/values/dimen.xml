@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="pokemon_img_big">250dp</dimen>
+    <dimen name="pokemon_img_small">25dp</dimen>
+    <dimen name="pokemon_name"> 50sp</dimen>
+</resources>

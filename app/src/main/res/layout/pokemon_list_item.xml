@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="com.akerusan.pokedex.binding.BindingAdaptersKt"/>
+        <variable
+            name="pokemonClickListener"
+            type="android.view.View.OnClickListener"/>
+        <variable
+            name="pokemonList"
+            type="com.akerusan.pokedex.models.Pokemon" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:onClick="@{pokemonClickListener}">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/poke_item_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:text="@{BindingAdaptersKt.editIdString(pokemonList.id)}"/>
+
+            <TextView
+                android:id="@+id/poke_item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@+id/poke_item_favorite"
+                android:layout_toEndOf="@+id/poke_item_order"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@{pokemonList.name}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <CheckBox
+                android:id="@+id/poke_item_favorite"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:button="@drawable/checkbox_selector"
+                android:checked="@{pokemonList.favorite}" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
+
+
