@@ -30,6 +30,22 @@
 
 ✖ View の生成に[epoxy](https://github.com/airbnb/epoxy)を使用する  
 
+作成方法：  
+使ったことのなかったものが多かったので下記順番に製造することにした。  
+１．MVVMでretrofitを通じてAPIからデータ取得し、画面上表示。  
+２．データベースとキャッシュを作成して、オフラインでも使える。  
+３．データバインディング導入。  
+４．DI（dagger2）->　勉強中で思ったより時間かかりそうと気づいてKoinを調査しましたが  
+時間がなかったので削ることにしてUnitテストに進んでみました。  
+５．Unitテスト -> 現在の業務でやっているPTとIT（パイソン）とよく似ていて、調査がはやかたですが、  
+APIのテストがうまくいかず、viewModelのテストの時間ができませんでした。  
+勉強続きます。  
+
+苦労した点：  
+こういう全体的なアーキテクチャー（API＋DB）はじめてでしたので、1番苦労したことは全体的なイメージが途中までつかなかったことです。  
+例えば、以上の作成方法の１．が終わった後に、DBを導入してviewModelとrepositoryを書き直すことになってしまいした。  
+
+
 参考したサイト：  
 https://developer.android.com/jetpack/docs/guide  
 https://github.com/android/architecture-components-samples  
