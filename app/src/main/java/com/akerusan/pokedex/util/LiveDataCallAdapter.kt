@@ -14,6 +14,8 @@ class LiveDataCallAdapter<R>(private var responseType: Type) : CallAdapter<R, Li
         return responseType
     }
 
+    // there's example in the retrofit github
+
     override fun adapt(call: Call<R>): LiveData<ApiResponse<R>> {
         return object: LiveData<ApiResponse<R>>() {
             override fun onActive() {

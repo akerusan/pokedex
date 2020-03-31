@@ -12,6 +12,7 @@ class PokemonListViewModel(application: Application?) : AndroidViewModel(applica
     private var moffset: String? = null
     private var mLimit: String? = null
 
+    // can act as a mediator before it gets send back to the observer
     private val pokemon: MediatorLiveData<Resource<List<Pokemon>>> = MediatorLiveData()
     private var pokemonRepository: PokeRepository? = null
 
@@ -29,6 +30,7 @@ class PokemonListViewModel(application: Application?) : AndroidViewModel(applica
         }
     }
 
+    // erreur c'etait pas utile vu que je change rien au livedata
     fun searchPokemonApi(offset: String, limit: String) {
         moffset = offset
         mLimit = limit

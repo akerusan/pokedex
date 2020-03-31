@@ -33,6 +33,7 @@ class PokeRepository private constructor(context: Context) {
         }
     }
 
+    // method to decide weather to hit the cache or the network
     fun searchPokemonApi(offset: String, limit: String) : LiveData<Resource<List<Pokemon>>>{
         return object: NetworkBoundResource<List<Pokemon>, PokemonListResponse>(AppExecutors().getInstance()!!){
             override fun saveCallResult(item: PokemonListResponse) {
@@ -54,6 +55,7 @@ class PokeRepository private constructor(context: Context) {
             override fun loadFromDb(): LiveData<List<Pokemon>> {
                 return pokemonDao!!.getAllPokemon()
             }
+            // return retrofit call as liveData object
             override fun createCall(): LiveData<ApiResponse<PokemonListResponse>> {
                 return ServiceGenerator.getPokemonApi().getPokemonResponse(offset, limit)
             }
